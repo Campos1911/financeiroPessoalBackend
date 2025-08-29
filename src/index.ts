@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3333;
 
 env.config();
 app.register(cors);
-app.register(UserRoutes, { prefix: "/user" });
+app.register(UserRoutes, { prefix: "/auth" });
 app.register(LancamentoRoutes, { prefix: "/lancamento" });
 
 app.get("/public", async (req, reply) => {
