@@ -1,0 +1,27 @@
+### Criar lançamento (entrada)
+POST http://localhost:3333/lancamento/register
+Content-Type: application/json
+
+{
+  "descricao": "Salário",
+  "valor": 1200,
+  "tipo": "entrada",
+  "data": "2025-08-29",
+  "userId": "5646bada-247d-4bc0-a78c-ba3242b6bac9"
+}
+
+### Criar lançamento (saída)
+POST http://localhost:3333/lancamento/register
+Content-Type: application/json
+
+{
+  "descricao": "Conta de luz",
+  "valor": 250,
+  "tipo": "saida",
+  "data": "2025-08-29",
+  "userId": "5646bada-247d-4bc0-a78c-ba3242b6bac9"
+}
+
+### Buscar lançamento por usuário
+GET http://localhost:3333/lancamento/user/5646bada-247d-4bc0-a78c-ba3242b6bac9
+
