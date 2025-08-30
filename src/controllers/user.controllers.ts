@@ -81,10 +81,6 @@ export class UserControllers {
 
       return reply.status(200).send({
         message: "Login realizado com sucesso",
-        user: {
-          id: userExists.id,
-          email: userExists.email,
-        },
         token,
       });
     } catch (error) {
