@@ -30,7 +30,7 @@ export class LancamentoControllers {
 
       return reply.status(201).send({
         message: "Lançamento registrado com sucesso",
-        user: newLancamento,
+        data: newLancamento,
       });
     } catch (error) {
       return reply.status(500).send({
