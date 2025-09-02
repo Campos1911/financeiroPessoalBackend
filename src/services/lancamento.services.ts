@@ -8,4 +8,7 @@ export class LancamentoServices {
   async getLancamentoByUserId(userId: string) {
     return await prisma.lancamento.findMany({ where: { userId } });
   }
+  async deleteLancamento(lancamentoId: string) {
+    return await prisma.lancamento.delete({ where: { id: lancamentoId } });
+  }
 }

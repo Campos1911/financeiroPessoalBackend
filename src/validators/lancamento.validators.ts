@@ -13,7 +13,7 @@ export const lancamentoSchema = z.object({
 });
 
 export const lancamentoParamsSchema = z.object({
-  userId: z.uuid("O parâmetro 'id' deve ser um UUID válido"),
+  id: z.uuid("O parâmetro 'id' deve ser um UUID válido"),
 });
 
 export type LancamentoInput = z.infer<typeof lancamentoSchema>;

@@ -18,12 +18,22 @@ export default async function LancamentoRoutes(app: FastifyInstance) {
   );
 
   app.get(
-    "/user/:userId",
+    "/user/:id",
     async (
       req: FastifyRequest<{ Params: z.infer<typeof lancamentoParamsSchema> }>,
       reply: FastifyReply
     ) => {
       return new LancamentoControllers().getLancamentoByUserId(req, reply);
+    }
+  );
+
+  app.delete(
+    "/:id",
+    async (
+      req: FastifyRequest<{ Params: z.infer<typeof lancamentoParamsSchema> }>,
+      reply: FastifyReply
+    ) => {
+      return new LancamentoControllers().deleteLancamento(req, reply);
     }
   );
 }

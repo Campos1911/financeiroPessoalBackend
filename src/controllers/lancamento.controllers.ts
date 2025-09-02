@@ -53,15 +53,43 @@ export class LancamentoControllers {
         });
       }
 
-      const { userId } = parsed.data;
+      const { id } = parsed.data;
 
       const lancamentos = await this.lancamentoService.getLancamentoByUserId(
-        userId
+        id
       );
 
       return reply.status(200).send({
         message: "Lançamentos encontrados",
         data: lancamentos,
+      });
+    } catch (error) {
+      return reply.status(500).send({
+        message: "Erro interno no servidor",
+      });
+    }
+  }
+
+  async deleteLancamento(
+    req: FastifyRequest<{ Params: z.infer<typeof lancamentoParamsSchema> }>,
+    reply: FastifyReply
+  ) {
+    try {
+      const parsed = lancamentoParamsSchema.safeParse(req.params);
+
+      if (!parsed.success) {
+        return reply.status(400).send({
+          message: "Erro de validação",
+          errors: z.treeifyError(parsed.error),
+        });
+      }
+
+      const { id } = parsed.data;
+
+      await this.lancamentoService.deleteLancamento(id);
+
+      return reply.status(200).send({
+        message: "Lançamento deletado",
       });
     } catch (error) {
       return reply.status(500).send({
