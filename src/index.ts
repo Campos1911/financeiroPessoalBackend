@@ -9,7 +9,10 @@ const app = fastify();
 const PORT = process.env.PORT || 3333;
 
 env.config();
-app.register(cors);
+app.register(cors, {
+  origin: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+});
 app.register(UserRoutes, { prefix: "/auth" });
 app.register(LancamentoRoutes, { prefix: "/lancamento" });
 
