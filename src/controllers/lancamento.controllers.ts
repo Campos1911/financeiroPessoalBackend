@@ -40,7 +40,10 @@ export class LancamentoControllers {
   }
 
   async getLancamentoByUserId(
-    req: FastifyRequest<{ Params: z.infer<typeof lancamentoParamsSchema> }>,
+    req: FastifyRequest<{
+      Params: z.infer<typeof lancamentoParamsSchema>;
+      Querystring: { ano?: string; mes?: string };
+    }>,
     reply: FastifyReply
   ) {
     try {
@@ -54,9 +57,12 @@ export class LancamentoControllers {
       }
 
       const { id } = parsed.data;
+      const { ano, mes } = req.query;
 
       const lancamentos = await this.lancamentoService.getLancamentoByUserId(
-        id
+        id,
+        ano,
+        mes
       );
 
       return reply.status(200).send({
@@ -64,6 +70,7 @@ export class LancamentoControllers {
         data: lancamentos,
       });
     } catch (error) {
+      console.error(error);
       return reply.status(500).send({
         message: "Erro interno no servidor",
       });

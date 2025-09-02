@@ -20,7 +20,10 @@ export default async function LancamentoRoutes(app: FastifyInstance) {
   app.get(
     "/user/:id",
     async (
-      req: FastifyRequest<{ Params: z.infer<typeof lancamentoParamsSchema> }>,
+      req: FastifyRequest<{
+        Params: z.infer<typeof lancamentoParamsSchema>;
+        Querystring: { ano?: string; mes?: string };
+      }>,
       reply: FastifyReply
     ) => {
       return new LancamentoControllers().getLancamentoByUserId(req, reply);

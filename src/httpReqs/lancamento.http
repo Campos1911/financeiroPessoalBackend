@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ### Buscar lançamento por usuário
-GET http://localhost:3333/lancamento/user/5646bada-247d-4bc0-a78c-ba3242b6bac9
+GET http://localhost:3333/lancamento/user/038d0b77-e194-4408-a339-dd1fcacb4bf0?ano=2025&mes=9
 
 ### Deletar lançamento
 DELETE http://localhost:3333/lancamento/e5943042-9aff-47d3-822f-25716eabaeb2
