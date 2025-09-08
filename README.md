@@ -35,11 +35,15 @@ Este repositório contém a API, modelos Prisma e scripts de desenvolvimento.
 ## Instalação (local)
 
 ```bash
-# clonar o repositório
+# Clonar o repositório
 git clone https://github.com/Campos1911/financeiroPessoalBackend.git
 cd financeiroPessoalBackend
 
-# instalar dependências
+# Instalar dependências
 yarn install
 # ou
 # npm install
+
+# rodar o prisma para configurar o banco
+npx prisma migrate dev
+npx prisma generate
