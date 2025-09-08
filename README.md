@@ -1,4 +1,4 @@
-# FinanceiroPessoalBackend
+# Financeiro Pessoal - Backend
 
 Backend em **TypeScript** para gerenciamento de finanças pessoais (receitas, despesas, categorias e relatórios).  
 Este repositório contém a API, modelos Prisma e scripts de desenvolvimento.
