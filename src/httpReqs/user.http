@@ -1,5 +1,5 @@
 ### Registro de usuário
-POST http://localhost:3333/register
+POST http://localhost:3333/auth/register
 Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### Login de usuário
-POST http://localhost:3333/login
+POST http://localhost:3333/auth/login
 Content-Type: application/json
 
 {
